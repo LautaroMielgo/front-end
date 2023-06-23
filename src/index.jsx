@@ -7,8 +7,8 @@ import { BrowserRouter } from 'react-router-dom'
 import store from './redux/store.js'
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'http://localhost:3001';
-axios.defaults.baseURL = 'https://back-end-production-913f.up.railway.app/';
+axios.defaults.baseURL = 'http://localhost:3001';
+// axios.defaults.baseURL = 'https://back-end-production-913f.up.railway.app/';
 
 
 
