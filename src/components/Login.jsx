@@ -70,7 +70,7 @@ export const Login = (props) => {
     const user = users.find((user) => user.email === userData.email);
 
     if (user && user.password === userData.password) {
-      navigate("/login");
+      navigate("/home");
     } else {
       alert("Invalid email or password");
     }
