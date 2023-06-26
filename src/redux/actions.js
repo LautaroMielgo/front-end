@@ -4,45 +4,45 @@ import axios from "axios";
 
 export const getAllPosts = () => {
     return async function (dispatch) {
-        const { data } = await axios.get(`http://localhost:3001/posts`);
+        const { data } = await axios.get(`/posts`);
         const posts = data;
         dispatch({ type: GET_ALL_POSTS, payload: posts });
     }
 }
 export const getPostById = (id) => {
     return async function (dispatch) {
-        const { data } = await axios.get(`http://localhost:3001/posts/${id}`);
+        const { data } = await axios.get(`/posts/${id}`);
         const post = data;
         dispatch({ type: GET_ID_POST, payload: post });
     }
 }
 export const getAllPostsIdUser = (id) => {
     return async function (dispatch) {
-        const { data } = await axios.get(`http://localhost:3001/company/${id}`);
+        const { data } = await axios.get(`/company/${id}`);
         dispatch({ type: GET_ALL_POSTS_ID_USER, payload: data });
     }
 }
 export const createPostUser = (postData) => {
     return async function (dispatch) {
-        const { data } = await axios.post(`http://localhost:3001/posts`, postData);
+        const { data } = await axios.post(`/posts`, postData);
         dispatch({ type: CREATE_POST_USER, payload: data });
     }
 }
 export const getAllUsers = () => {
     return async function (dispatch){
-        const {data} = await axios.get(`http://localhost:3001/users`);
+        const {data} = await axios.get(`/users`);
         dispatch({ type: GET_ALL_USERS, payload: data });
     }
 }
-export const createUser = (userData) => {
-    return async function (dispatch) {
-       await axios.post(`http://localhost:3001/users`, userData);
-        dispatch({ type: CREATE_USER });
-    }
-}
+// export const createUser = (userData) => {
+//     return async function (dispatch) {
+//        await axios.post(`http://localhost:3001/users`, userData);
+//         dispatch({ type: CREATE_USER });
+//     }
+// }
 export const deletePostUser = (id_post) => {
     return async function (dispatch) {
-        const { data } = await axios.delete(`http://localhost:3001/posts/${id_post}`);
+        const { data } = await axios.delete(`/posts/${id_post}`);
         dispatch({ type: DELETE_POST_USER, payload: data });
     }
 }
@@ -53,12 +53,13 @@ export const userLogin = (user) => {
 
 export const createUser = (userData) => {
     return async function (dispatch) {
-        await axios.post(`http://localhost:3001/users`, userData);
+        await axios.post(`/users`, userData);
         dispatch({ type: CREATE_USER });
-
+    }
+}
 export const userLogin_App = (userName) => {
     return async function (dispatch){
-        const {data} = await axios.get(`http://localhost:3001/users/?userName=${userName}`);
+        const {data} = await axios.get(`/users/?userName=${userName}`);
         dispatch({ type: USER_LOGIN, payload: data });
 
     }
@@ -71,7 +72,7 @@ export function logoutUser() {
 
 export const getUsers = () => { //trae solo users
     return async (dispatch) => {
-        const usersResponse = await axios.get("http://localhost:3001/users");
+        const usersResponse = await axios.get("/users");
         const users = usersResponse.data;
 
         return dispatch({type: "FETCH_DATA_SUCCESS", payload: {users}});
@@ -85,7 +86,7 @@ export const getCompanies = () => { //trae solo companies
 
 export const getUsersAndCompanies = () => {
   return async (dispatch) => {
-    const usersResponse = await axios.get("http://localhost:3001/users");
+    const usersResponse = await axios.get("/users");
     // const companiesResponse = await axios.get("http://localhost:3001/company");
     console.log(usersResponse);
     const users = usersResponse.data;
@@ -97,7 +98,7 @@ export const getUsersAndCompanies = () => {
 // , companies
 export const createUserData = (payload) => {
     return async function (dispatch) {
-        await axios.post("http://localhost:3001/company/", payload)
+        await axios.post("/company/", payload)
         return dispatch({ type: CREATE_USER_DATA })
     }
 }
