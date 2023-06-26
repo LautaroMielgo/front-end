@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import CardsContainer from "./CardsContainer";
-import { getByUserName } from "../redux/actions";
+
 
 import { useDispatch } from "react-redux";
 
