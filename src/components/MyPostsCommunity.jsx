@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllPosts } from "../redux/actions";
-import PostCommunity from "./PostCommunity";
+import { useParams, Link } from "react-router-dom";
+import { getAllPostsIdUser } from "../redux/actions";
+import CardMyPostCommunity from "./CardMyPostsCommunity";
 import CreatePostCommunity from "./CreatePostCommunity";
-import { Link } from "react-router-dom";
 
-const Community = () => {
+const MyPostCommunity = () => {
+
+  const { id } = useParams();
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.allPosts);
-
-  const user = useSelector((state) => state.userLogin);
-
+  const posts = useSelector((state) => state.allPostsIdUser.posts);
+  const user = useSelector((state) => state.allPostsIdUser.full_name);
   const [showModal, setShowModal] = useState(false)
 
+
   useEffect(() => {
-    dispatch(getAllPosts());
-  }, [dispatch, showModal]);
+    dispatch(getAllPostsIdUser(id));
+
+  }, [dispatch, id, showModal]);
 
   const closeModal = () => {
     setShowModal(!showModal);
@@ -29,23 +31,17 @@ const Community = () => {
           <h2 className="text-3xl font-bold text-teal-700 ml-[20vw]">COMMUNITY</h2>
           <div className="flex">
             <div>
-              <Link to={`/community/myposts/${user?.user_datum?.id_user_data}`}>
+              <Link to={`/community`}>
                 <button
                   className="select-none rounded-lg bg-teal-700 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none mr-2"
                 >
-                  MY POSTS
+                  ALL POSTS
                 </button>
               </Link>
             </div>
             <div>
               <button
-                onClick={() => {
-                  if (user?.user_datum?.id_user_data) {
-                    setShowModal(true);
-                  } else {
-                    alert("You need to register to create posts.");
-                  }
-                }}
+                onClick={() => setShowModal(true)}
                 className="select-none rounded-lg bg-teal-700 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               >
                 CREATE POST
@@ -54,16 +50,16 @@ const Community = () => {
           </div>
           {showModal && <CreatePostCommunity closeModal={closeModal} />}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ml-[20vw]">
-          {posts.map((post) => (
-            <PostCommunity key={post.id_post} post={post} />
+        {posts?.length > 0 ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ml-[20vw]">
+          {posts?.map((post) => (
+            <CardMyPostCommunity key={post.id_post} post={post} user={user} />
           ))}
         </div>
+        : <h1>You don´t have any post yet.</h1>
+        }
       </div>
     </div>
   );
-  
-          }  
+}
 
-export default Community;
-
+export default MyPostCommunity;
