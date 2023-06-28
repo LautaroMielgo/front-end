@@ -327,7 +327,7 @@ console.log(form)
               </div>
             )}
 
-            {/* {form.rol_type === "userDev" && (<div>
+            {form.rol_type === "userDev" && (<div>
 
             <div className="relative mb-2">
               <label
@@ -432,7 +432,7 @@ console.log(form)
             className="w-full px-2 py-1 border rounded"
           />
         </div>
-        </div>)} */}
+        </div>)}
 
 
 
