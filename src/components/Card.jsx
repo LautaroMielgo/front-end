@@ -74,7 +74,7 @@ imagenperfil: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmPVTYhTBmr
       {techNews.map((news, index) => (
         <div
           className="card rounded-lg shadow-lg my-4 border-success"
-          style={{ width: '400px', height: 'max-content'}}
+          style={{ width: '450px', }}
           key={index}
         >
           <div className="card-header d-flex align-items-center p-2">

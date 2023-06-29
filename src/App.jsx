@@ -16,12 +16,15 @@ import {useEffect} from "react";
 import { userLogin_App } from "./redux/actions";
 import { useDispatch} from 'react-redux';
 import Test1 from "./components/test1";
+import MercadoPagoButton from "./components/MercadoPago/MercadoPagoButton";
+import axios from "axios";
 
 
+// axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'https://back-end-production-913f.up.railway.app/';
 
 
-
-function App () {
+function App() {
  
 const location = useLocation();
 const dispatch = useDispatch();
@@ -52,7 +55,7 @@ useEffect(() => {
         <Route path="/community/myposts/:id" element={ <MyPostCommunity />} />
         <Route path="/inprogress" element={ <InProgress /> }/>
         <Route path= "/test1" element={<Test1/>} />
-     
+        <Route path="/test2" element={<MercadoPagoButton/>} />
         
 
       </Routes>
