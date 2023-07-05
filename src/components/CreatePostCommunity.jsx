@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createPostUser } from "../redux/actions";
-
 import CloudinaryUploadWidget from "./Cloudinary/UploadWidget"
+import Swal from 'sweetalert2';
 
+// {if(user?.user_datum?.rol === "company") {
 
 const CreatePostCommunity = ({ closeModal }) => {
 
@@ -14,7 +15,11 @@ const CreatePostCommunity = ({ closeModal }) => {
     id_user_data: user.user_datum.id_user_data,
     title: "",
     body: "",
-    image: ""
+    image: "",
+    state: "In Progress",
+    typePost: "Community",
+    full_name: user.user_datum.full_name,
+    email: user.email
   });
 
 
@@ -42,7 +47,12 @@ const CreatePostCommunity = ({ closeModal }) => {
       closeModal();
       window.location.reload();
     } else {
-      alert("Please fill in the required fields");
+      Swal.fire({
+        icon: 'error',
+        title: 'Post incompleted !',
+        text: 'Please fill in the required fields..',
+        confirmButtonColor: '#ff7f7f',
+      });
     }
   };
 

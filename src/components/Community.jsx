@@ -5,22 +5,39 @@ import PostCommunity from "./PostCommunity";
 import CreatePostCommunity from "./CreatePostCommunity";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
+//*paginado
+import Paginated from "./Paginated";
 
 const Community = () => {
-  const dispatch = useDispatch();
-  const posts = useSelector((state) => state.allPosts);
-
-  const user = useSelector((state) => state.userLogin);
-
   const [showModal, setShowModal] = useState(false)
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllPosts());
   }, [dispatch, showModal]);
 
+
+  const posts = useSelector((state) => state.allPosts);
+  const user = useSelector((state) => state.userLogin);
+
+
+console.log(posts);
+
   const closeModal = () => {
     setShowModal(!showModal);
   }
+
+  //*paginado
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 6;
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
 
   return (
@@ -61,15 +78,25 @@ const Community = () => {
           {showModal && <CreatePostCommunity closeModal={closeModal} />}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ml-[20vw]">
-          {posts.map((post) => (
-            <PostCommunity key={post.id_post} post={post} />
-          ))}
+          {posts && posts
+            .filter((post) => post.typePost === "Community")
+            .map((post) => (
+              <PostCommunity key={post.id_post} post={post} />
+            ))}
         </div>
+
+
+        <Paginated
+          currentPage={currentPage}
+          totalPages={Math.ceil(posts.length / postsPerPage)}
+          onPageChange={handlePageChange}
+        />
+
       </div>
     </div>
   );
-  
-          }  
+
+}
 
 export default Community;
 
