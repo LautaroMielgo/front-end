@@ -96,7 +96,7 @@ import { Link } from "react-router-dom";
         </button>
         <Link to={`/JobsOffers/myposts/${user?.user_datum?.id_user_data}`}>
         <button onClick={() => 
-          {if ((user?.user_datum?.rol === "company") || (user?.user_datum?.rol === "admin")){
+          {if  (user?.user_datum?.rol === "admin"){
             setShowModal(true)
           }else{ 
             Swal.fire({
