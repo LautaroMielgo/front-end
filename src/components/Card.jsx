@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { deletePostUser, updatePostUser } from '../redux/actions';
-import { useDispatch } from 'react-redux';
+import { deletePostUser, updatePostUser} from '../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const Card = ({ post }) => {
   const dispatch =useDispatch();
   const [likesCount, setLikesCount] = useState(0);
+  const user = useSelector((state) => state.userLogin)
   
 
   const handleLikeClick = () => {
@@ -34,9 +35,10 @@ const Card = ({ post }) => {
               <span>{likesCount}</span>
               <i className="bi bi-share-fill me-1"></i>
               <i className="bi bi-chat-fill me-1"></i>
-              <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              {user.user_datum?.rol === "admin"?<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Eliminar
-              </button>
+              </button> : null}
+              
             </div>
             <p className="card-text">
             </p>
