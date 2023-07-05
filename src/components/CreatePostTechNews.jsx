@@ -91,8 +91,8 @@ const CreatePostTechNews = ({ closeModal }) => {
     const { body } = postData;
     if (body.length < 10) {
       setErrors({ ...errors, body: "Requires a minimum of 10 characters." });
-    } else if (body.length > 500) {
-      setErrors({ ...errors, body: "Maximum 500 characters." });
+    } else if (body.length > 255) {
+      setErrors({ ...errors, body: "Maximum 255 characters." });
     } else {
       setErrors({ ...errors, body: "" });
     }
