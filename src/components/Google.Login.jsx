@@ -107,10 +107,13 @@ function LoginButton() {
       dispatch(userLogin(dataa)),
       navigate("/home")
     ) : (
-      <><button onClick={handleOnClickGoogle} type="button" className={style.loginBtnGoogle}>
-        Sign in with Google
-      </button></>
-    )}</>
+      <>
+        <div className={style.container}>
+          <button onClick={handleOnClickGoogle} type="button" className={style.loginBtnGoogle}>Iniciar sesión con Google</button>
+        </div>
+      </>
+    )}
+    </>
   )
 
 }
