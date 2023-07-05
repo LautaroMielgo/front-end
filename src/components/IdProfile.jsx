@@ -19,6 +19,8 @@ export const IdProfile = () => {
     return <div>Loading...</div>;
   }
 
+  const filteredUser = usersYcompanies.filter((u) => u.userName === user.userName);
+
   return (
     <div>
       {user.user_datum ? (
