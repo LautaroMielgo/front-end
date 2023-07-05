@@ -33,9 +33,8 @@ const Card = ({ post }) => {
             <div className="space-x-6">
               <i className="bi bi-heart-fill me-1 text-danger" onClick={handleLikeClick}></i>
               <span>{likesCount}</span>
-              <i className="bi bi-share-fill me-1"></i>
               <i className="bi bi-chat-fill me-1"></i>
-              {user.user_datum?.rol === "admin"?<button type="button" className="btn btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              {user.user_datum?.rol === "admin"?<button type="button" className="btn btn-dark text-dark color-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Eliminar
               </button> : null}
               
@@ -57,8 +56,8 @@ const Card = ({ post }) => {
               <p>¿Estás seguro de que deseas eliminar este posteo?</p>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" className="btn btn" onClick={handleDelete}>Eliminar</button>
+              <button type="button" className="btn btn-dark text-dark" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" className="btn btn-danger text-dark" onClick={handleDelete}>Eliminar</button>
             </div>
           </div>
         </div>

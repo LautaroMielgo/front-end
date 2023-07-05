@@ -19,7 +19,7 @@ export const Login = () => {
   }, [dispatch]);
   const handleLogin = () => {
     // Redirigir al usuario a la página de inicio de sesión de GOOGLE
-    window.location.href = 'http://localhost:3001/auth';
+    window.location.href = 'https://backend-dev-production-dd5a.up.railway.app/auth';
   };
 
   const [userData, setUserData] = useState({

@@ -11,7 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import SideListDash from './SideListDash';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMemo } from 'react';
 import { Brightness4, Brightness7, DashboardCustomize, House } from '@mui/icons-material';
 import { Menu, Tooltip, createTheme } from '@mui/material';
@@ -58,6 +58,10 @@ export default function Dashboard() {
     setOpen(true);
   };
   const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate('/dashboard/users');
+  }, []);
   return (
     <ThemeProvider theme={darkTheme}>
 

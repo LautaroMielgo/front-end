@@ -1,4 +1,3 @@
-
 import {
 
   AccountCircle,
@@ -37,7 +36,7 @@ import {
   Typography,
 } from '@mui/material';
 import MuiDrawer from '@mui/material/Drawer';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 
 import UsersDash from './Pages/Users/UsersDash';
 import CompaniesDash from './Pages/Companies/CompaniesDash';
@@ -105,20 +104,17 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const SideListDash = ({ open, setOpen }) => {
 
-  const [selectedLink, setSelectedLink] = useState('');
+  const [selectedLink, setSelectedLink] = useState('users');
+
+  useEffect(() => {
+    setSelectedLink('users');
+  }, []);
 
   const list = useMemo(
     () => [
       {
-        title: 'My information',
-        icon: <AccountCircle />,
-        link: 'mydata',
-        component: <MyData {...{ setSelectedLink, 
-        link: 'mydata' }} />,
-      },
-      {
         title: 'Users',
-        icon: <VerifiedUserRounded />,
+        icon: <AccountCircle />,
         link: 'users',
         component: <UsersDash {...{ setSelectedLink, link: 'users' }} />,
       },
