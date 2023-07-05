@@ -56,9 +56,16 @@ const CreatePostTechNews = ({ closeModal }) => {
     if (validation()) {
       dispatch(createPostUser(postData));
       closeModal();
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
     } else {
-      alert("Please fill in the required fields");
+      Swal.fire({
+        icon: 'error',
+        title: 'Post incompleted !',
+        text: 'Please fill in the required fields..',
+        confirmButtonColor: '#ff7f7f',
+      });
     }
   };
 

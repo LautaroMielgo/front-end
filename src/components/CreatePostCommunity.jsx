@@ -46,7 +46,9 @@ const CreatePostCommunity = ({ closeModal }) => {
     if (validation()) {
       dispatch(createPostUser(postData));
       closeModal();
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
     } else {
       Swal.fire({
         icon: 'error',
