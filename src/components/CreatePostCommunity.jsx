@@ -38,6 +38,7 @@ const CreatePostCommunity = ({ closeModal }) => {
   };
 
   const dispatch = useDispatch();
+  console.log(postData);
 
   const handleSubmit = (event) => {
     event.preventDefault();
