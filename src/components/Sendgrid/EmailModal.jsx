@@ -24,7 +24,7 @@ export default function EmailModal({handleCloseEmailModal, post}) {
   const allUsers = useSelector((state) => state.allUsers);
   const user = useSelector((state) => state.userLogin);
  
-  const companyUser = allUsers.filter( (e) => e.user_datum.id_user_data === post.id_user_data);
+  const companyUser = allUsers.filter( (e) => e.user_datum?.id_user_data === post?.id_user_data);
 
  
 
