@@ -61,7 +61,9 @@ const CommentsCommunity = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteComment(id));
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
       }
     });
   };

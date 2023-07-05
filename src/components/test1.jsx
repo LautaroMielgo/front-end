@@ -129,7 +129,9 @@ const Test1 = () => {
       })
      
       setTimeout(() => {
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
       }, 2000);
 
     }

@@ -65,7 +65,9 @@ const UsersDash = ({ setSelectedLink, link }) => {
 
         Swal.fire(`${isActive ? 'Disable' : 'Enable'} confirmed`, '', 'success')
           .then(() => {
-            window.location.reload();
+            setTimeout(() => {
+              window.location.reload();
+            }, 1500);
           });
       }
     });
@@ -87,7 +89,9 @@ const UsersDash = ({ setSelectedLink, link }) => {
 
         Swal.fire('Role Change Confirmed', '', 'success')
           .then(() => {
-            window.location.reload();
+            setTimeout(() => {
+              window.location.reload();
+            }, 1500);
           });
       }
     });

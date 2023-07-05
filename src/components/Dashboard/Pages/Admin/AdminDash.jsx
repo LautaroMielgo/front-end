@@ -65,7 +65,9 @@ const CompaniesDash = ({ setSelectedLink, link }) => {
 
         Swal.fire(`${isActive ? 'Disable' : 'Enable'} confirmed`, '', 'success')
           .then(() => {
-            window.location.reload();
+            setTimeout(() => {
+              window.location.reload();
+            }, 1500);
           });
       }
     });

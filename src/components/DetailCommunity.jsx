@@ -40,7 +40,9 @@ const Detail = () => {
       };
       dispatch(createCommentPost(newComment));
       setComment("");
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
     }
   };
   
@@ -58,7 +60,9 @@ const Detail = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteComment(commentId));
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
       }
     });
   };

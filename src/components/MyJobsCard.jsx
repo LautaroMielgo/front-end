@@ -28,7 +28,9 @@ const MyJobsCard = ({ post, user }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deletePostUser(post.id_post));
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
       }
     });
   };

@@ -46,7 +46,9 @@ const ModifyPostCommunity = ({ closeModal, post }) => {
     if (validation()) {
       dispatch(modifyPostUser(postData));
       closeModal();
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
     } else {
       Swal.fire({
         icon: 'error',

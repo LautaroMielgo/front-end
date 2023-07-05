@@ -18,7 +18,9 @@ export default function SideBarDash() {
         sessionStorage.removeItem("Name");
         sessionStorage.removeItem("id");
         sessionStorage.removeItem("mail");
-        window.location.reload();
+        setTimeout(() => {
+            window.location.reload();
+          }, 1500);
     };
     return (
         <div className={style.sideBar}>
