@@ -68,8 +68,8 @@ const validateTitle = () => {
   const { title } = postData;
   if (title.length < 3) {
     setErrors({ ...errors, title: "Requires a minimum of 3 characters." });
-  } else if (title.length > 50) {
-    setErrors({ ...errors, title: "Maximum 50 characters." });
+  } else if (title.length > 200) {
+    setErrors({ ...errors, title: "Maximum 200 characters." });
   } else {
     setErrors({ ...errors, title: "" });
   }
@@ -79,8 +79,8 @@ const validateBody = () => {
   const { body } = postData;
   if (body.length < 10) {
     setErrors({ ...errors, body: "Requires a minimum of 10 characters." });
-  } else if (body.length > 255) {
-    setErrors({ ...errors, body: "Maximum 255 characters." });
+  } else if (body.length > 500) {
+    setErrors({ ...errors, body: "Maximum 500 characters." });
   } else {
     setErrors({ ...errors, body: "" });
   }
