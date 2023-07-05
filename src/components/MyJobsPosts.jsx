@@ -14,6 +14,7 @@ const MyJobsPosts = () => {
   const posts = useSelector((state) => state.allPostsIdUser.posts);
   const user = useSelector((state) => state.allPostsIdUser.full_name);
   const [showModal, setShowModal] = useState(false)
+  const filteredPosts = posts.filter(post => post.typePost === "Job");
 
   const userId = useSelector((state) => state.userLogin);
 
@@ -67,7 +68,7 @@ const MyJobsPosts = () => {
         </div>
         {posts?.length > 0 ? 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ml-[20vw]">
-          {posts?.map((post) => (
+          {filteredPosts?.map((post) => (
             <MyJobsCard key={post.id_post} post={post} user={user} />
           ))}
         </div>

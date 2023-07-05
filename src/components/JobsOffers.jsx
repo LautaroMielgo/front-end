@@ -94,11 +94,12 @@ import { Link } from "react-router-dom";
             <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-teal-200"></span>
             <span className="relative">CREATE POST</span>
         </button>
+        {user?.user_datum?.rol === "company" || user?.user_datum?.rol === "admin" ?
         <Link to={`/JobsOffers/myposts/${user?.user_datum?.id_user_data}`}>
         <button onClick={() => 
-          {if  (user?.user_datum?.rol === "admin"){
+          {if(user?.user_datum?.rol === "company" || user?.user_datum.rol === "admin") {
             setShowModal(true)
-          }else{ 
+          }else{
             Swal.fire({
               icon: 'error',
               title: 'Need to be a company',
@@ -112,7 +113,7 @@ import { Link } from "react-router-dom";
             <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-teal-200"></span>
             <span className="relative">MY POST</span>
         </button>
-              </Link>
+              </Link> : null}
       </div>
       {showModal && <CreatePostModal  closeModal={closeModal} />}
      <div className="grid grid-cols-3 gap-5 mt-16 py-4 ml-14">
