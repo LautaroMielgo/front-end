@@ -49,6 +49,7 @@ export const getAllPostsIdUser = (id) => {
 export const createPostUser = (postData) => {
     return async function (dispatch) {
         const { data } = await axios.post(`/posts`, postData);
+        console.log("error");
         dispatch({ type: CREATE_POST_USER, payload: data });
     }
 }

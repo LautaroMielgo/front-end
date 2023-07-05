@@ -56,7 +56,7 @@ const CreatePostCommunity = ({ closeModal }) => {
     }
   };
 
-  //*validaciones*//
+  //validaciones//
 
   const [errors, setErrors] = useState({
     title: "",
@@ -174,4 +174,3 @@ const CreatePostCommunity = ({ closeModal }) => {
 };
 
 export default CreatePostCommunity;
-
