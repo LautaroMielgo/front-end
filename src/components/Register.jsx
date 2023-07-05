@@ -103,7 +103,10 @@ export const Register = () => {
       });
 
       dispatch(userLogin(users));
-      navigate("/home");
+      setTimeout(() => {
+        navigate("/home");
+      }, 1500);
+      
 
       setUsers({
         userName: "",

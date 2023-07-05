@@ -77,8 +77,8 @@ import { Link } from "react-router-dom";
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-200 bg-cover">
       <div className="absolute top-16 right-8">
-        <button onClick={() => 
-          {if(user?.user_datum?.rol === "company") {
+      <button onClick={() => 
+          {if(user?.user_datum?.rol === "company" || user?.user_datum.rol === "admin") {
             setShowModal(true)
           }else{
             Swal.fire({
