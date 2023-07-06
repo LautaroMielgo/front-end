@@ -126,8 +126,6 @@ const Detail = () => {
         }
         <div className="flex mb-4 items-center">
           <div className="ml-auto">
-            <span>❤️ </span>
-            <span className="font-bold"> {post.likes}</span>
           </div>
           <div className="ml-6">
             <span>✉️ </span>

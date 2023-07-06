@@ -31,9 +31,6 @@ const Card = ({ post }) => {
             <h5 className="card-title text-2x1 font-bold text-black">{post.title}</h5>
             <p className="card-text">{post.body}</p>
             <div className="space-x-6">
-              <i className="bi bi-heart-fill me-1 text-danger" onClick={handleLikeClick}></i>
-              <span>{likesCount}</span>
-              <i className="bi bi-chat-fill me-1"></i>
               {user.user_datum?.rol === "admin"?<button type="button" className="btn btn-dark text-dark color-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Eliminar
               </button> : null}

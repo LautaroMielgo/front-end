@@ -14,7 +14,7 @@ const MyJobsPosts = () => {
   const posts = useSelector((state) => state.allPostsIdUser.posts);
   const user = useSelector((state) => state.allPostsIdUser.full_name);
   const [showModal, setShowModal] = useState(false)
-  const filteredPosts = posts.filter(post => post.typePost === "Job");
+  const filteredPosts = posts?.filter(post => post.typePost === "Job");
 
   const userId = useSelector((state) => state.userLogin);
 

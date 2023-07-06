@@ -130,8 +130,8 @@ import { Link } from "react-router-dom";
           currentPage={currentPage}
           totalPages={Math.ceil(posts.length / postsPerPage)}
           onPageChange={handlePageChange}
-        />
-      */}
+        /> */}
+     
     </div>
   );
 };
