@@ -143,7 +143,7 @@ export const Login = () => {
   return (
     <div>
       <section className="flex flex-col md:flex-row h-screen items-center" >
-        <div className="hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen bg-[url('https://p4.wallpaperbetter.com/wallpaper/798/507/822/blue-numbers-techno-wallpaper-preview.jpg')]" >
+        <div className="hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen bg-[url('https://p4.wallpaperbetter.com/wallpaper/798/507/822/blue-numbers-techno-wallpaper-preview.jpg')] bg-cover bg-no-repeat" >
           {/* <img
             src="src/image/dev.jpg"
             alt="background"
