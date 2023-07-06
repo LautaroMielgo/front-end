@@ -120,7 +120,7 @@ export const Register = () => {
   }
 
   return (
-    <div className="bg-[url('./src/image/leftside.jpg')] flex items-center justify-center min-h-screen">
+    <div className="bg-[url('https://i.pinimg.com/474x/91/73/17/917317596ff52c9d81ae909c08313784.jpg')] flex items-center justify-center min-h-screen">
       <div className="w-full sm:w-[40%] bg-gray-100 mx-auto px-6 py-12 border-0 shadow-lg sm:rounded-3xl">
         <h1 className="flex justify-center mb-3 -mt-8 text-3xl font-extrabold text-gray-900 md:text-2xl lg:text-5xl">
           <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400 mr-4 mt-0">
@@ -182,7 +182,7 @@ export const Register = () => {
                   <input
                     type="password"
                     id="floating_outlined2"
-                    className="block px-2.5 pb-2.5 pt-4 w-full sm:w-[405%] text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-black font-mono dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    className="block px-2.5 pb-2.5 pt-4 w-full sm:w-[300%] text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-black font-mono dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" "
                     name="password2"
                     value={confirmPassword.password2}
