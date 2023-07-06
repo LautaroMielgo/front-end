@@ -81,8 +81,6 @@ const CardMyPostCommunity = ({ post, user }) => {
           </div>
           <div className="flex items-center">
             <div className="mr-4">
-              <span className="text-gray-600">❤️ </span>
-              <span className="font-bold">{post.likes}</span>
             </div>
             <div className="ml-2">
             <span>✉️ </span>
