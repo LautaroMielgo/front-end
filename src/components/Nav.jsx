@@ -117,14 +117,14 @@ const Nav = () => {
       >
         <div className="container-fluid relative">
           <NavLink to="/home">
-            <a className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400 mr-4 mt-0 text-4xl font-extrabold">
+            <a className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400 mr-1 mt-0 text-4xl font-extrabold">
               DEVPOOL
             </a>
           </NavLink>
           {location.pathname === "/JobsOffers" && (
             <div className="dropdown">
               <select
-                className="form-select text-white py-2 px-4 rounded-md bg-clip-padding"
+                className="form-select text-white rounded-md bg-clip-padding w-auto"
                 onChange={handleEmpleoFilter}
               >
 
@@ -141,7 +141,7 @@ const Nav = () => {
           {location.pathname === "/JobsOffers" && (
             <div className="dropdown">
               <select
-                className="form-select text-white py-2 px-4 rounded-md bg-clip-padding"
+                className="form-select text-white  rounded-md  w-auto"
                 onChange={handleCargoFilter}
               >
                 <option disabled value="">
@@ -166,7 +166,7 @@ const Nav = () => {
               Reset
             </button>
           )}
-          <div className="d-flex flex-grow-2 w-50" ref={searchRef}>
+          <div className="d-flex gap-3 w-25" ref={searchRef}>
             <SearchBar setSuggestions={handleSetSuggestions} />
           </div>
           <button

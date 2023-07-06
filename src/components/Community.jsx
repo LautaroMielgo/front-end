@@ -17,8 +17,10 @@ const Community = () => {
   }, [dispatch, showModal]);
 
 
-  const posts = useSelector((state) => state.allPosts);
   const user = useSelector((state) => state.userLogin);
+  const posts = useSelector((state) => state.allPosts);
+
+  const postsCom = posts.filter((post) => post.typePost === "Community")
 
 
 console.log(posts);
@@ -33,15 +35,16 @@ console.log(posts);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
+    document.documentElement.scrollTop=0;
   };
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = postsCom.slice(indexOfFirstPost, indexOfLastPost);
 
 
   return (
-    <div className="bg-gray-100 h-screen">
+    <div className="bg-gray-100 h-full min-h-screen">
       <div className="flex flex-col items-center mt-10 mr-8">
         <div className="flex items-center justify-between w-full mb-4 mt-8">
           <h2 className="text-3xl font-bold text-teal-700 ml-[20vw]">COMMUNITY</h2>
@@ -78,9 +81,7 @@ console.log(posts);
           {showModal && <CreatePostCommunity closeModal={closeModal} />}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ml-[20vw]">
-          {posts && posts
-            .filter((post) => post.typePost === "Community")
-            .map((post) => (
+          {postsCom && currentPosts.map((post) => (
               <PostCommunity key={post.id_post} post={post} />
             ))}
         </div>
@@ -88,7 +89,7 @@ console.log(posts);
 
         <Paginated
           currentPage={currentPage}
-          totalPages={Math.ceil(posts.length / postsPerPage)}
+          totalPages={Math.ceil(postsCom.length / postsPerPage)}
           onPageChange={handlePageChange}
         />
 
