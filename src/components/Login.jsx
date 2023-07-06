@@ -14,6 +14,7 @@ export const Login = () => {
 
   const users = useSelector((state) => state.allUsers);
 
+
   useEffect(() => {
     dispatch(getAllUsers());
   }, [dispatch]);
@@ -34,10 +35,10 @@ export const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
+
     const user = users.find((user) => user.email === userData.email);
 
-  
+
     if (user && user.password === userData.password && user.userName === userData.username && user.user_datum && user.user_datum.isActive === false) {
       Swal.fire({
         icon: 'error',
@@ -48,7 +49,7 @@ export const Login = () => {
     } else if (user && user.password === userData.password && user.userName === userData.username) {
 
       dispatch(userLogin(user));
-      
+
       navigate("/home");
     } else {
       Swal.fire({
@@ -59,8 +60,8 @@ export const Login = () => {
       });
     }
   };
-  
-  
+
+
 
 
   //*validaciones*//
@@ -156,7 +157,7 @@ export const Login = () => {
             <h1 className="text-blue-500 text-2xl md:text-4xl font-bold">
               DevPool
             </h1>
-          
+
             <form
               onSubmit={handleSubmit}
               className="mt-6"
@@ -222,14 +223,14 @@ export const Login = () => {
                 )}
               </div>
 
-              <div className="text-right mt-2">
+              {/* <div className="text-right mt-2">
                 <a
                   href="#"
                   className="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700"
                 >
                   Forgot Password?
                 </a>
-              </div>
+              </div> */}
 
               <button
                 type="submit"
@@ -245,10 +246,10 @@ export const Login = () => {
               </button>
             </form>
 
-          
 
-            <LoginButton/>
-                    
+
+            <LoginButton />
+
 
             <p className="mt-2">
               Need an account?{' '}

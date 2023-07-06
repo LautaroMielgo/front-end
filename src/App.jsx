@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios"
+import ConfirmacionEmail from "./components/ConfirmacionEmail";
 
 //* import que rompe
 import { userLogin_App } from "./redux/actions";
@@ -108,7 +109,10 @@ axios.defaults.baseURL = 'https://backend-dev-production-dd5a.up.railway.app/';
         <Route path="/devdata" element={<DevData />} />
         <Route path="/comments/:id" element={<CommentsCommunity />} />
         <Route path="/test2" element={<MercadoPagoButton />} />
+        <Route path="/confirm" element={<ConfirmacionEmail/>} />
         <Route path="/JobsOffers/myposts/:id" element={ <MyJobsPosts />} />
+        
+        
           
         //Dashboard routes
         <Route path="/dashboard/*" element={<Dashboard />} />
