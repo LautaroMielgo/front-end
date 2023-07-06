@@ -35,7 +35,7 @@ const Profile = () => {
                 <img
                   src={user.user_datum.image.url}
                   alt="Profile"
-                  className="w-[300px] h-[220px] rounded-full mr-4"
+                  className="w-[300px] h-[300px] rounded-full mr-4"
                 />
                 <div>
                   <h2 className="text-3xl font-bold text-center font-mono">
