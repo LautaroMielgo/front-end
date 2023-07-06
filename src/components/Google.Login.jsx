@@ -30,7 +30,7 @@ function LoginButton() {
   const app = initializeApp(firebaseConfig);
   //   const analytics = getAnalytics(app);
 
-  const auth = getAuth()
+  const auth = getAuth(app)
 
   const provider = new GoogleAuthProvider()
 
@@ -46,6 +46,7 @@ function LoginButton() {
       setDataa(data)
 
       dispatch(newGoogleUser(data))
+      console.log(data, "data de google");
       // try {
       //   //Esto deberia estar en actions y reducer
       //   const response = await axios.post("http://localhost:3001/auth/google", data);
@@ -107,13 +108,10 @@ function LoginButton() {
       dispatch(userLogin(dataa)),
       navigate("/home")
     ) : (
-      <>
-        <div className={style.container}>
-          <button onClick={handleOnClickGoogle} type="button" className={style.loginBtnGoogle}>Iniciar sesión con Google</button>
-        </div>
-      </>
-    )}
-    </>
+      <><button onClick={handleOnClickGoogle} type="button" className={style.loginBtnGoogle}>
+        Sign in with Google
+      </button></>
+    )}</>
   )
 
 }

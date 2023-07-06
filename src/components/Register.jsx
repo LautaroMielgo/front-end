@@ -104,9 +104,9 @@ export const Register = () => {
 
       dispatch(userLogin(users));
       setTimeout(() => {
-        navigate("/home");
+        window.location.reload();
       }, 1500);
-      
+      navigate("/home");
 
       setUsers({
         userName: "",
