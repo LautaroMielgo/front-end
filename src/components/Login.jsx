@@ -143,7 +143,7 @@ export const Login = () => {
   return (
     <div>
       <section className="flex flex-col md:flex-row h-screen items-center" >
-        <div className="bg-red-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen bg-[url('./src/image/leftside.jpg')]" >
+        <div className="hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen bg-[url('./src/image/leftside.jpg')]" >
           {/* <img
             src="src/image/dev.jpg"
             alt="background"
