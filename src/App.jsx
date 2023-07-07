@@ -24,16 +24,9 @@ import MyPostCommunity from "./components/MyPostsCommunity";
 import Test1 from "./components/test1";
 import CommentsCommunity from "./components/CommentsCommunity";
 import MercadoPagoButton from "./components/MercadoPago/MercadoPagoButton";
-
-
 // import  HomeDash  from "./components/Dashboard/HomeDash";
-
-
-
-
 import  Dashboard  from "./components/Dashboard/Dashboard";
 import { IdProfile } from "./components/IdProfile";
-
 import DevData from "./components/DevData";
 import MyJobsPosts from "./components/MyJobsPosts";
 

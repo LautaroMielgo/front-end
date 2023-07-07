@@ -61,7 +61,7 @@ const Card = ({ post }) => {
     //   </div>
     // </div>
    
-    <div className="card text-bg-dark mb-3">
+      <div className="card text-bg-dark mb-3">
     {post.image && <img src={post.image.url} alt={post.title} className="card-img" />}
     <div className="card-img-overlay">
       <h5 className="card-title text-white backdrop-blur-sm">{post.title}</h5>
